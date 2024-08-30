@@ -1,0 +1,11 @@
+// Here is a list of all the references I used to help me on the assignment.
+
+//1. Swing Tutorial: https://www.geeksforgeeks.org/introduction-to-java-swing/
+//2. Swing Controls: https://www.tutorialspoint.com/swing/swing_controls.htm
+//3. Swing Button Tutorial: https://www.youtube.com/watch?v=QvFQFmzRqoo
+//4. Jlabels https://www.youtube.com/watch?v=PLvIyoWPfmM
+//5. BST https://study.com/academy/lesson/binary-search-trees-definition-uses.html
+//6. BST, Find and Insert Functions https://study.com/academy/lesson/practical-application-for-data-structures-search-trees.html
+//7. BST https://www.baeldung.com/java-binary-tree
+//8. BST https://builtin.com/software-engineering-perspectives/tree-traversal#4
+//9. Delete Node https://www.geeksforgeeks.org/deletion-in-binary-search-tree/#

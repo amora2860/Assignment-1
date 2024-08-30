@@ -1,0 +1,36 @@
+The application must address the following requirements:
+
+1 (Done) Include a user interface allowing a user to interact with the binary search tree.
+2 (Done) When a user runs the application, it displays a menu and prompts the user to select an option.
+
+3 (Done) The menu options are:
+    Create a binary search tree
+    Add a node
+    Delete a node
+    Print nodes by InOrder
+    Print nodes by PreOrder
+    Print nodes by PostOrder
+    Exit program
+
+
+4 (Done) When a user selects 1) Create a binary search tree, the application creates a binary search tree with the given data (1, 2, 3, 4, 5, 6, 7).
+
+5 (Done) When a user selects 2) Add a node, the application prompts the user to input a value for the new node. The application needs to insert the value to the existing binary search tree.
+
+6 (Done) When a user selects 3) Delete a node, the application prompts the user to input the value of the node that will be deleted. The application needs to delete the node.
+
+7 (Done) When a user selects 4) Print nodes by InOrder, the application prints the nodes of the current binary search tree by traversing it using in-order traversal.
+
+8 (Done) When a user selects 5) Print nodes by PreOrder, the application prints the nodes of the current binary search tree by traversing it using pre-order traversal.
+
+9 (Done) When a user selects 6) Print nodes by PostOrder, the application prints the nodes of the current binary search tree by traversing it using post-order traversal.
+
+10 (Done) When a user selects 7) Exit program, the application ends.
+
+11 (Done) The program meets all the requirements and works without any errors.
+
+12 (Done) The code employs efficient algorithms and doesn't include unnecessary components.
+
+13 (Done) The code is easily understandable and well-organized and uses proper naming and formatting.
+
+15 (Done) Evaluate each reference.
