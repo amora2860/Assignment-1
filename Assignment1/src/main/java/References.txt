@@ -9,3 +9,4 @@
 //7. BST https://www.baeldung.com/java-binary-tree
 //8. BST https://builtin.com/software-engineering-perspectives/tree-traversal#4
 //9. Delete Node https://www.geeksforgeeks.org/deletion-in-binary-search-tree/#
+//10. AVL tree https://www.geeksforgeeks.org/insertion-in-an-avl-tree/
