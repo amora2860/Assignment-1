@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Using one binary search tree in this program
+    // Using only one instance of binary search tree in this program
     public static BinarySearchTree binaryTree = new BinarySearchTree();
-    // Using one array list for all printing operations
-    public static ArrayList<Integer> myList = new ArrayList<Integer>();
+    // Using only one instance of array list for all printing operations
+    public static ArrayList<Integer> myList = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -58,13 +58,8 @@ public class Main {
                                 System.out.println("Enter an integer that you would like to add? ");
                                 scanner.nextLine(); // Consume newline
                                 int keyInt = scanner.nextInt();
-
-
-                                
-                                    //System.out.println();
-                                   // Add the integer into the binary search tree.
-                                   binaryTree.insert(keyInt);
-
+                                // Add the integer into the binary search tree.
+                                binaryTree.insert(keyInt);
                         }
                         // Delete a node in the binary search tree
                         if (choice == 3) {

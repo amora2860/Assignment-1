@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
 public class BinarySearchTree {
-    // Initializing the binary search tree by setting the root to point at no other nodes.
+    // Initializing the binary search trees root
     public BinarySearchTree() {
         root = null;
     }
 
-    // This defines what a node contains and what the names are for the connecting nodes.
+    // Defining what attributes a node will have
     class Node {
         int data;
         Node leftChild;
         Node rightChild;
         int height;
 
-        // Initial creation of the node and setting values to null.
+        // Properties of a new node
         Node(int data) {
             this.data = data;
             leftChild = rightChild = null;
@@ -21,76 +21,76 @@ public class BinarySearchTree {
         }
     }
 
-    // Initializing the root node.
+    // Creating the root node.
     Node root;
-    //
+
+    // Retrieving the stored height of a node.
     static int getHeight(Node node) {
         if (node == null)
             return 0;
         return node.height;
     }
 
-
+    // Perform a right rotation on the binary search tree at a specific node.
     static Node rightRotation(Node node) {
         Node n1 = node.leftChild;
         Node n2 = n1.rightChild;
 
-        // Rotate nodes
+        // Reassigning node links aka rotating the nodes
         n1.rightChild = node;
         node.leftChild = n2;
 
-        //
+        // Updating node to the new height after rotation
         node.height = 1 + Math.max(getHeight(node.leftChild),
                 getHeight(node.rightChild));
+        // Updating n1 to the new height after rotation
         n1.height = 1 + Math.max(getHeight(n1.leftChild),
                 getHeight(n1.rightChild));
 
-        // Return updated root
+        // Return the updated node
         return n1;
     }
 
-    //
+    // Perform a left rotation on the binary search tree at a specific node.
     static Node leftRotation(Node node) {
         Node n1 = node.rightChild;
         Node n2 = n1.leftChild;
 
-        // Rotate nodes
+        // Reassigning node links aka rotating the nodes
         n1.leftChild = node;
         node.rightChild = n2;
 
-        //
+        // Updating node to the new height after rotation
         node.height = 1 + Math.max(getHeight(node.leftChild),
                 getHeight(node.rightChild));
+        // Updating n1 to the new height after rotation
         n1.height = 1 + Math.max(getHeight(n1.leftChild),
                 getHeight(n1.rightChild));
 
-        // Return updated root
+        // Return the updated node
         return n1;
     }
 
-
-
-    // This method calls for the insertNode method. It saves the returned node to
-    // the root.
+    // Calls for insertNode and updates root
     public void insert(int data) {
         root = insertNode(root, data);
     }
 
-    // This method recursively navigates the binary search tree when it finds the
-    // proper place to insert the node.
+    // This method recursively navigates the binary search tree to find the proper place to insert the new node.
     public Node insertNode(Node node, int data) {
-        // If the starting node is null then the node is created.
+        // If the starting node is null then the new node is created.
         if (node == null) {
             node = new Node(data);
             return node;
         }
-        // If the key to be added is less than or equal to then go to the left child and
+        // If data to be added is less than or equal to node.data then go to the left child and
         // keep searching recursively.
         if (data <= node.data) {
             node.leftChild = insertNode(node.leftChild, data);
 
         }
-        // If the key to be added is greater than the node then go to the right child and keep searching recursively.
+        // If data to be added is greater than to node.data then go to the right child and
+        // keep searching recursively.
         else if (data > node.data) {
             node.rightChild = insertNode(node.rightChild, data);
 
@@ -102,46 +102,56 @@ public class BinarySearchTree {
 
     }
 
+    // Returns the balance of a particular node to check if we have any in balances
     static int getBalance(Node node) {
         if (node == null)
             return 0;
         return getHeight(node.leftChild) - getHeight(node.rightChild);
     }
 
-    // need a function called balance tree
-    public Node balanceTree(Node node, int data){
-        // Update height of this ancestor node
+    // Checking the balance of a node and performing the rotations to resolve the imbalance if it exists
+    // There are four cases of rotation that can come up
+
+
+    // Single right rotation: Node rotating about has a chil
+    // Right rotation then a left rotation:
+    // Single left rotation:
+    // Left rotation then a right rotation:
+
+
+    public Node balanceTree(Node node, int data) {
+        // Update height of the previous node
         node.height = 1 + Math.max(getHeight(node.leftChild),
                 getHeight(node.rightChild));
 
-        // Get the balance factor of this node
+        // Get the balance of this node
         int balance = getBalance(node);
 
-
-
-        // Left Left Case
-        if (balance > 1 && data < node.leftChild.data)
-            return rightRotation(node);
-
-        // Right Right Case
-        if (balance < -1 && data > node.rightChild.data)
-            return leftRotation(node);
-
-        // Left Right Case
-        if (balance > 1 && data > node.leftChild.data) {
-            node.leftChild = leftRotation(node.leftChild);
+        // Single right rotation
+        if (balance > 1 && data < node.leftChild.data) {
             return rightRotation(node);
         }
 
-        // Right Left Case
+        // Right rotation then a left rotation
         if (balance < -1 && data < node.rightChild.data) {
             node.rightChild = rightRotation(node.rightChild);
             return leftRotation(node);
         }
 
-        // Return the (unchanged) node pointer
+        // Single left rotation
+        if (balance < -1 && data > node.rightChild.data) {
+            return leftRotation(node);
+        }
+        // Left rotation then a right rotation
+        if (balance > 1 && data > node.leftChild.data) {
+            node.leftChild = leftRotation(node.leftChild);
+            return rightRotation(node);
+        }
+
+        // Return the node
         return node;
     }
+
     // This method applies the root from the binary search tree to the findThisNode along with the value we are trying
     // to find.
     public Node find(int data) {
@@ -214,12 +224,12 @@ public class BinarySearchTree {
 
             return node;
         }
-
+        // Check to see if the tree needs to be balanced
         return balanceTree(node, data);
 
     }
 
-    // Since the findSuccessor already provided the right child of the node to be deleted we only need to find the last left child linked.
+    // Return the smallest value linked to the provided node
     public Node findSuccessor(Node node) {
 
         while (node.leftChild != null) {
@@ -272,7 +282,6 @@ public class BinarySearchTree {
         }
         return list;
     }
-
 
 
 }
