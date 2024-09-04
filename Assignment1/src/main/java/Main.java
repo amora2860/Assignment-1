@@ -79,19 +79,19 @@ public class Main {
                         if (choice == 4) {
                             // The PrintInOrder method is called, and myList is updated and returned.
                             binaryTree.printInOrder(binaryTree.root, myList);
-                            System.out.println("Nodes printed in order: " + myList);
+                            System.out.println("Nodes printed Inorder: " + myList);
                         }
                         // Print the BST in Preorder
                         if (choice == 5) {
                             // The printPreOrder method is called, and myList is updated and returned.
                             binaryTree.printPreOrder(binaryTree.root, myList);
-                            System.out.println( "Nodes printed in preorder: " + myList);
+                            System.out.println( "Nodes printed in Preorder: " + myList);
                         }
                         // Print the BST in Postorder
                         if (choice == 6) {
                             // The printPostOrder method is called, and myList is updated and returned.
                             binaryTree.printPostOrder(binaryTree.root, myList);
-                            System.out.println("Nodes printed in post order: " + myList);
+                            System.out.println("Nodes printed in Postorder: " + myList);
                         }
                     }
                     else {
